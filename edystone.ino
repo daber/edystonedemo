@@ -19,8 +19,9 @@
  * SOFTWARE.
  */
 
-#include "edystone.h"
 #include <avr/sleep.h>
+
+#include "Edystone.h"
 /**
 Include the services_lock.h to put the setup in the OTP memory of the nRF8001.
 This would mean that the setup cannot be changed once put in.

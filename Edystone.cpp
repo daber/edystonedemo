@@ -5,12 +5,13 @@
  *      Author: daber
  */
 
+#include "Edystone.h"
+
 #include <SPI.h>
 #include <EEPROM.h>
 #include <lib_aci.h>
 #include <aci_setup.h>
 
-#include "edystone.h"
 #include "services.h"
 const char* schemes[] =
   { HTTPS_WWW, HTTP_WWW, HTTPS, HTTP };
