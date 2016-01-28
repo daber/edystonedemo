@@ -3,3 +3,5 @@
 /arduino/
 /spec.d
 /.ino.cpp
+/.cproject
+/.settings
