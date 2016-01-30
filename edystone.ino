@@ -38,6 +38,7 @@ void disableACDC() {
 }
 
 void setup(void) {
+	Serial.begin(9600);
 	disableACDC();
 	//beacon.broadcastID(nid,bid);
 	beacon.broadcastURL("http://neofonie.de/");
@@ -52,7 +53,7 @@ void sleep_until_interrupted() {
 }
 
 void loop() {
-	beacon.startLooping();
+	beacon.loop();
 	sleep_until_interrupted();
 }
 

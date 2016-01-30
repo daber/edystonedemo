@@ -35,7 +35,7 @@ public:
 	setBroadcastInterval(uint16_t interval_ms);
 
 	void
-	startLooping();
+	loop();
 
 //  void
 //  setInterval();

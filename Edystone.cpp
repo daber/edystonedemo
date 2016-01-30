@@ -54,7 +54,6 @@ SERVICES_PIPE_TYPE_MAPPING_CONTENT;
 		}
 		void EdystoneBeacon::ble_setup(void)
 		{
-			Serial.begin(115200);
 			//Wait until the serial port is available (useful only for the Leonardo)
 			//As the Leonardo board is not reseted every time you open the Serial Monitor
 #if defined (__AVR_ATmega32U4__)
@@ -314,7 +313,7 @@ void EdystoneBeacon::init() {
 	ble_setup();
 }
 
-void EdystoneBeacon::startLooping() {
+void EdystoneBeacon::loop() {
 	ble_loop();
 }
 
