@@ -23,45 +23,36 @@
 
 #include "Edystone.h"
 /**
-Include the services_lock.h to put the setup in the OTP memory of the nRF8001.
-This would mean that the setup cannot be changed once put in.
-However this removes the need to do the setup of the nRF8001 on every reset.
-*/
+ Include the services_lock.h to put the setup in the OTP memory of the nRF8001.
+ This would mean that the setup cannot be changed once put in.
+ However this removes the need to do the setup of the nRF8001 on every reset.
+ */
 
 EdystoneBeacon beacon(-66);
-uint8_t nid[] = {1,2,3,4,5,6,7,8,9,0};
-uint8_t bid[] = {1,2,3,4,5,6};
+uint8_t nid[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+uint8_t bid[] = { 1, 2, 3, 4, 5, 6 };
 
-
-
-void
-disableACDC ()
-{
-  ADCSRA = ADCSRA & B01111111;
-  ACSR = B10000000;
+void disableACDC() {
+	ADCSRA = ADCSRA & B01111111;
+	ACSR = B10000000;
 }
 
-
-void setup(void)
-{
-  disableACDC();
-  //beacon.broadcastID(nid,bid);
-  beacon.broadcastURL("http://neofonie.de/");
-  beacon.setBroadcastInterval(500);
-  beacon.init();
+void setup(void) {
+	disableACDC();
+	//beacon.broadcastID(nid,bid);
+	beacon.broadcastURL("http://neofonie.de/");
+	beacon.setBroadcastInterval(500);
+	beacon.init();
 }
 
-void
-sleep_until_interrupted()
-{
-      set_sleep_mode(SLEEP_MODE_IDLE);
-      sleep_mode();
+void sleep_until_interrupted() {
+	set_sleep_mode(SLEEP_MODE_IDLE);
+	sleep_mode()
+	;
 }
 
-
-void loop()
-{
-  beacon.startLooping();
-  sleep_until_interrupted();
+void loop() {
+	beacon.startLooping();
+	sleep_until_interrupted();
 }
 
