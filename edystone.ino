@@ -51,14 +51,14 @@ void setup(void)
   beacon.init();
 }
 
-
-
 void
 sleep_until_interrupted()
 {
       set_sleep_mode(SLEEP_MODE_IDLE);
       sleep_mode();
 }
+
+
 void loop()
 {
   beacon.startLooping();

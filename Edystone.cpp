@@ -12,6 +12,8 @@
 #include <lib_aci.h>
 #include <aci_setup.h>
 
+#include "boards/nemoboard_nfr8001_pins.h"
+
 #include "services.h"
 const char* schemes[] =
   { HTTPS_WWW, HTTP_WWW, HTTPS, HTTP };
@@ -83,8 +85,8 @@ static services_pipe_type_mapping_t services_pipe_type_mapping[NUMBER_OF_PIPES] 
 	     The Active pin is optional and can be marked UNUSED
 	     */
 	    aci_state.aci_pins.board_name = BOARD_DEFAULT; //See board.h for details
-	    aci_state.aci_pins.reqn_pin = 9;
-	    aci_state.aci_pins.rdyn_pin = 3;
+	    aci_state.aci_pins.reqn_pin = NFR8001_REQ_PIN;
+	    aci_state.aci_pins.rdyn_pin = NFR8001_RDY_PIN;
 	    aci_state.aci_pins.mosi_pin = MOSI;
 	    aci_state.aci_pins.miso_pin = MISO;
 	    aci_state.aci_pins.sck_pin = SCK;
@@ -92,12 +94,12 @@ static services_pipe_type_mapping_t services_pipe_type_mapping[NUMBER_OF_PIPES] 
 	    aci_state.aci_pins.spi_clock_divider = SPI_CLOCK_DIV8;//SPI_CLOCK_DIV8  = 2MHz SPI speed
 								  //SPI_CLOCK_DIV16 = 1MHz SPI speed
 
-	    aci_state.aci_pins.reset_pin = 4;
+	    aci_state.aci_pins.reset_pin = NFR8001_RST_PIN;
 	    aci_state.aci_pins.active_pin = UNUSED;
 	    aci_state.aci_pins.optional_chip_sel_pin = UNUSED;
 
-	    aci_state.aci_pins.interface_is_interrupt = true;
-	    aci_state.aci_pins.interrupt_number = digitalPinToInterrupt(3);
+	    aci_state.aci_pins.interface_is_interrupt = digitalPinToInterrupt(NFR8001_RDY_PIN)!=-1?true:false;
+	    aci_state.aci_pins.interrupt_number = digitalPinToInterrupt(NFR8001_RDY_PIN);
 
 								  //We reset the nRF8001 here by toggling the RESET line connected to the nRF8001
 								  //and initialize the data structures required to setup the nRF8001
