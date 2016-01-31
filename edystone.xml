@@ -7,7 +7,7 @@
         <Name>Edystone</Name>
         <Uuid>feaa</Uuid>
         <Characteristic>
-            <Name>Edistone data</Name>
+            <Name>Edystone data</Name>
             <Uuid>feaa</Uuid>
             <DefaultValue>0000000000000000000000000000</DefaultValue>
             <UsePresentationFormat>0</UsePresentationFormat>
