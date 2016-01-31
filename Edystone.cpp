@@ -95,7 +95,7 @@ SERVICES_PIPE_TYPE_MAPPING_CONTENT;
 		aci_state.aci_pins.active_pin = UNUSED;
 		aci_state.aci_pins.optional_chip_sel_pin = UNUSED;
 
-		aci_state.aci_pins.interface_is_interrupt = digitalPinToInterrupt(NFR8001_RDY_PIN)!=-1?true:false;
+		aci_state.aci_pins.interface_is_interrupt = NFR8001_USE_INTERRUPT;
 		aci_state.aci_pins.interrupt_number = digitalPinToInterrupt(NFR8001_RDY_PIN);
 
 		//We reset the nRF8001 here by toggling the RESET line connected to the nRF8001
@@ -139,8 +139,8 @@ SERVICES_PIPE_TYPE_MAPPING_CONTENT;
 						{
 							Serial.println("Starting broadcasting ");
 							Serial.println(mode);
-							lib_aci_set_local_data(&aci_state,PIPE_EDYSTONE_EDISTONE_DATA_SET,getFramePointer(),getFrameSize());
-							lib_aci_open_adv_pipe(PIPE_EDYSTONE_EDISTONE_DATA_BROADCAST);
+							lib_aci_set_local_data(&aci_state,PIPE_EDYSTONE_EDYSTONE_DATA_SET,getFramePointer(),getFrameSize());
+							lib_aci_open_adv_pipe(PIPE_EDYSTONE_EDYSTONE_DATA_BROADCAST);
 							lib_aci_broadcast(0/*in seconds*/, interval/*in 0.625 ms*/);
 
 						}
