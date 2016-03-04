@@ -5,14 +5,13 @@
  *      Author: daber
  */
 
-#include "Edystone.h"
-
 #include <SPI.h>
 #include <EEPROM.h>
 #include <lib_aci.h>
 #include <aci_setup.h>
 
 #include "boards/nemoboard_nfr8001_pins.h"
+#include "Eddystone.h"
 
 #include "services.h"
 const char* schemes[] = { HTTPS_WWW, HTTP_WWW, HTTPS, HTTP };
